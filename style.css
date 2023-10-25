@@ -1,0 +1,386 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Glober Demo', sans-serif;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(49,51,56,255)
+}
+
+.navigation {
+    z-index: 999;
+    width: 70px;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(30,31,34,255)
+}
+
+.channel-dm {
+    width:  50px;
+    height: 50px;
+    background-color: #5f5e62;
+    border-radius: 17px;
+    margin: 10px;
+    transition: 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.channel-dm:hover { 
+    background-color: #5f58e4; 
+}
+
+.fa-logo {
+    font-size: 1.7rem;
+}
+
+.channel:hover {
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.channel:hover .hovering-bar {
+    animation: barChannel 0.1s ease-in-out;
+    transition: transform 1s ease;
+    display: block;
+}
+
+.channel:hover .tooltip {
+    display: block;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-radius: 190px;
+    transform: translate(-19px, -6px);
+    border-left: 20px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 20px solid rgb(17, 17, 17); /* Adjust the color and size as needed */
+    position: absolute;
+}
+
+.tooltip {
+    animation: discordAnimation 0.2s ease-in-out;
+    display: none;
+    left: 0;
+    transform: translate(85px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: absolute;
+    width: auto;
+    max-width: min-content;
+    color: white;
+    background-color: rgb(17, 17, 17);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.tooltip p {
+    margin: 0%;
+    width: auto;
+    font-size: 0.9rem;
+    color: rgb(226, 225, 224);
+}
+
+.hovering-bar {
+    width: 4px;
+    display: none;
+    height: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgb(233, 233, 233);
+    position: absolute;
+    left: 0;
+}
+
+.event-boxsize {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    font-family: 'Poppins', sans-serif;
+    height: 140px;
+    width: 230px;
+    border:  4px solid rgb(38, 131, 49);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.titled-event {
+    width: auto;
+    height: 20px;
+    background-color: rgb(38, 131, 49);
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: rgb(243, 243, 243);
+}
+
+.dot {
+    width: auto;
+    font-size: 0.6rem;
+    float: right;
+    margin-right: 4px;
+    margin-top: 1px;
+    color: rgb(224, 224, 224);
+}
+
+.image-event {
+    margin: 4px;
+    border-radius: 6px;
+    width: auto;
+    height: 100%;
+    background-image: url(https://cdn.leonardo.ai/users/8d857217-fc78-4969-bbc8-f9e426752e87/generations/1b9b1034-7331-45a7-a7aa-1b1ce4e4ae13/Pro_Anime_Style_Gen_20_a_beautiful_view_of_beach_with_a_palm_t_1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.channel-group {
+    transition: 1s ease;
+    width:  50px;
+    height: 50px;
+    background-color: rgb(32, 162, 238);
+    border-radius: 50%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: 0.4s;
+}
+
+.channel-explore {
+    width: 50px;
+    height: 50px;
+    background-color: #3C3642;
+    color: #3BA45F;
+    display: flex;
+    margin: 10px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.channel-explore:hover {
+    background-color: #3BA45F;
+    color: #d5d1da;
+}
+
+.funct-channel {
+    width: auto;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+}
+
+.message-count {
+    width: auto;
+    padding: 3px;
+    height: 14px;
+    background-color: rgb(239, 54, 54);
+    position: absolute;
+    border-radius: 20px;
+    transform: translate(16px, 16px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid  #1c1c1c;
+    font-size: 0.7rem;
+}
+
+.divide {
+    width: 32px;
+    margin: 10px;
+    margin-left: 19px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: rgb(66, 66, 66);
+}
+
+.server-stats {
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 234px;
+    left: 0;
+    height: 100vh;
+    border-left: 2px solid rgba(59,61,68,255);
+    border-right: 2px solid rgba(59,61,68,255);
+    position: fixed;
+    transform: translateX(70px);
+    background-color: rgba(43,45,49,255)
+}
+
+.server-stats::-webkit-scrollbar {
+    width: 3px;
+}
+
+.named-channel {
+    width: 210px;
+    position: fixed;
+    transform: translateX(70px);
+    z-index: 99;
+    height: 40px;
+    text-align: left;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    padding-left: 20px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.named-channel:hover {
+    backdrop-filter: blur(3px);
+}
+
+.named-channel h1 {
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    margin: 0%;
+}
+
+.named-channel a {
+    font-weight: 30;
+    color: gray;
+    position: absolute;
+    right: 0;
+    margin: 12px;
+    transform: scale(0.8);
+}
+
+.image-cover {
+    width: auto;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    height: 130px;
+    background-image: url(https://cdn.leonardo.ai/users/8d857217-fc78-4969-bbc8-f9e426752e87/generations/1b9b1034-7331-45a7-a7aa-1b1ce4e4ae13/Pro_Anime_Style_Gen_20_a_beautiful_view_of_beach_with_a_palm_t_0.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.divide-stat {
+    width: auto;
+    height: 1px;
+    background-color: rgba(59,61,68,255);
+    margin: 6px;
+}
+
+.filler-section {
+    width: 305px;
+    height: 100vh;
+}
+
+.message-channel {
+    cursor: pointer;
+    width: auto ;
+    height: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    color: rgba(128,132,142,255);
+    padding: 3px;
+    padding-left: 12px;
+    margin-bottom: 3px;
+    border-radius: 4px;
+}
+
+.message-channel:hover {
+    color: rgb(188, 190, 194);
+    background-color: rgb(59, 62, 67)
+}
+
+.message-channel h2 {
+    font-size: 0.9rem;
+    margin-left: 6px;
+}
+
+.anouncer {
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-right: 12px;
+    font-size: 0.6rem;
+    padding: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 12px;
+
+}
+
+.newAn{
+    background-color:#BCC0F5 ;    
+    color: #2C2E34;
+}
+
+.list-overflow {
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    width: auto;
+    height: 20px;
+    color: rgba(128,132,142,255);
+}
+
+.list-overflow h2 {
+    margin-left: 12px;
+    font-size: 0.8rem;
+}
+
+.list-overflow h2:hover {
+    color: rgb(201, 203, 209);
+}
+
+.list-overflow i {
+    margin-right: 4px;
+    font-size: 0.6rem;
+}
+
+.content-listover {
+    margin-top: 8px;
+    width: auto;
+    height: auto;
+}
+
+.filler {
+    width: auto;
+    height: 100vh;
+}
+
+@keyframes discordAnimation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes barChannel {
+    0% {
+        transform: scaleX(0);
+        opacity: 0%;
+    }
+    50% {
+        transform: scaleX(2);
+    }
+    100% {
+        transform: scaleX(1);
+        opacity: 100%;
+    }
+}
