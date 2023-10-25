@@ -267,6 +267,61 @@ body {
     background-repeat: no-repeat;
 }
 
+.level-group {
+    cursor: pointer;
+    display: flex;
+    width: auto;
+    height: 50px;
+    margin: 4px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.level-group:hover .tooltip-stats {
+    display: block;
+}
+
+.tooltip-stats {
+    animation: discordAnimation 0.2s ease-in-out;
+    display: none;
+    width: auto;
+    max-width: 190px;
+    height: fit-content;
+    font-size: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 6px;
+    text-align: left;
+    position: absolute;
+    transform: translate(10px, -65px);
+    font-weight: 600;
+    color: rgb(225, 215, 215);
+    background-color: rgb(16, 15, 15);
+    padding: 7px;
+}
+
+.level-group h2 {
+    margin: 0%;
+    margin-top: 6px;
+    margin-left: 12px;
+    font-size: 0.8rem;
+}
+
+.booster-text {
+    position: absolute;
+    right: 0;
+   margin: 12px;
+    font-size: 0.7rem;
+    color: rgb(144, 140, 140);
+}
+
+.level-group progress {
+    width: 220px;
+    transform: translateY(30px);
+    height: 10px;
+    margin: 0%;
+    position: absolute;
+}
+
 .divide-stat {
     width: auto;
     height: 1px;
